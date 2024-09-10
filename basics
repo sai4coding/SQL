@@ -1,0 +1,39 @@
+create database school;
+create database mydb;
+drop database mydb;
+create database mydb;
+use school;
+create table students(
+student_id int primary key,
+studentName varchar(50),
+age int,
+gender varchar(10));
+
+create table Courses(
+CourseId int primary key,
+CourseName varchar(50),
+Credits int
+);
+
+create table Enrollement(
+EnrollmentId int primary key,
+EnrollmentDate date,
+studentId int,
+CourseId int,
+foreign key (studentId) references students(student_Id),
+foreign key (CourseId) references Courses(CourseId)
+);
+insert into students values( 001,"naga",18,"male");
+insert into students values(002,"sai",19,"male");
+insert into students values(003,"teja",23,"male");
+insert into students values(004,"priya",21,"female");
+select *from students;
+select *from students where age>18;
+select *from students where gender="male";
+insert into Courses values(001,"maths",2);
+insert into Courses values(002,"physics",3);
+insert into Courses values(003,"science",4);
+insert into Courses values(004,"chemistry",6);
+insert into Courses values(005,"biology",11);
+select *from Courses;
+select *from Courses where Credits>=11;
